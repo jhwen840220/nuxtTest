@@ -1,0 +1,29 @@
+{
+  "name": "awesome-nuxt-app",
+  "version": "1.0.0",
+  "description": "My wicked Nuxt.js project",
+  "author": "Ted",
+  "private": true,
+  "scripts": {
+    "dev": "set PORT=3006 && nuxt",
+    "build": "nuxt build",
+    "start": "set PORT=3010 && nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.3.5",
+    "axios": "^0.18.0",
+    "bootstrap-sass": "^3.4.1",
+    "bootstrap-vue": "^2.0.0-rc.14",
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.11.0",
+    "nuxt": "^2.4.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "susy": "2.2.12"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

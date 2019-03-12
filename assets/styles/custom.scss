@@ -1,0 +1,137 @@
+// @import "susy";
+
+// $susy:(
+//   columns: 12,
+//   column-width:60px,
+//   math: fluid, //使用fluid的話，所有編譯出來的單位都是%，但使用[static]再配合column-width則就會變成px、em
+//   gutter-position: split,
+//   gutters:1/3,
+//   debug:(image:true) 
+// );
+
+// @for $i from 1 through 12{
+//     .testGrid_#{$i}{
+//       @include span($i);
+//     }
+//   }
+
+// .page{
+//     @include container;
+//     padding:0 10px;
+// }
+$main-color: rgb(91, 179, 201);
+body{
+    font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,"PingFang SC","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+.menu_burger {
+    margin-top: 14px;
+    position: absolute;
+    right:39px;
+    z-index:1030;
+    @media (min-width: 768px){
+        display:none;
+    }
+    i {
+        position: absolute;
+        display: block;
+        width: 23px;
+        height: 4px;
+        left: 3px;
+        border-radius: 2px;
+        transition: .2s;
+        background: #ccc;
+    }
+    .i1 {
+        top: 3.5px;
+        &.closed {
+            width: 31.25px;
+            transform: translateX(-4.5px) translateY(8px) rotate(45deg);
+        }
+    }
+    .i2 {
+        top: 12.25px;
+        &.closed {
+            transform: scale(0); // width:0;
+        }
+    }
+    .i3 {
+        top: 20px;
+        &.closed {
+            width: 31.25px;
+            transform: translateX(-4.5px) translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+.navbar{
+    background-color:$main-color;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    @media (max-width: 768px){
+        padding-right:38px;
+    }
+    .navbar_toggle_btn {
+        @media (min-width: 768px){
+            display:none;
+        }
+    }
+    .navbar_menu{
+        @media (max-width: 768px){
+            display:none;
+        }
+        display:flex;
+        list-style: none;
+        .nav-link{
+            color:rgb(73, 73, 73);
+        }
+    }
+    .navbar_right{
+        display: flex;
+        align-items:center;
+    }
+}
+.footer{
+    height:40px;
+    background: white;
+    border-top: 1px solid #e7eaec;
+    padding: 10px 20px;
+    font-size:13px;
+    .fixed{
+        position: fixed;
+        bottom:0;
+    }
+}
+#page-wrapper{
+    height:calc(100vh - 96px);
+    background-color: rgb(222, 238, 238);
+    overflow: auto;
+    .container {
+        margin: 0 auto;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .title {
+    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: block;
+    font-weight: 300;
+    font-size: 100px;
+    color: #35495e;
+    letter-spacing: 1px;
+    }
+    
+    .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+    }
+    
+    .links {
+    padding-top: 15px;
+    }
+}
