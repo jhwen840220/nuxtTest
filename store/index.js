@@ -21,7 +21,7 @@ export const actions = {
 }
 export const mutations = {
     setStatus(state, status) {
-        state.testStatus = status
+        state.testStatus = status;
     }
 }
 
