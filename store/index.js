@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import layoutStore from './layoutStore'
 Vue.use(Vuex)
 
 export const state = () => ({
@@ -25,13 +24,15 @@ export const mutations = {
     }
 }
 
-// Nuxt 3 直接把 store封裝
 // const store = () => {
 //     return new Vuex.Store({
 //         state,
 //         getters,
 //         mutations,
-//         actions
+//         actions,
+//         modules: {
+//             layoutStore
+//         }
 //     })
 // }
 

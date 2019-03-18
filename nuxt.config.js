@@ -52,13 +52,23 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   // bootstrapVue: {
   //   bootstrapCSS: false, // or `css`
   //   bootstrapVueCSS: false // or `bvCSS`
   // },
 
+  proxy: {
+    '/api': {
+      target: 'http://10.1.1.27:881',
+      pathRewrite: {
+        '^/api': '/'
+      }
+    }
+  },
   /*
   ** Build configuration
   */
