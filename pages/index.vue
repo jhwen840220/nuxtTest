@@ -1,11 +1,7 @@
 <template>
   <section class="container">
     <logo class="mb-3"/>
-    <form
-      role="form"
-      @submit="(e)=>{if (e)  e.preventDefault() ;login({account:account,password:password})}"
-      method="post"
-    >
+    <form role="form" @submit="login" method="post">
       <div class="col-md-12 input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">@</span>
@@ -20,16 +16,20 @@
       </div>
       <button>登入</button>
     </form>
+    <button @click="getGameList">123</button>
+    <div>{{list}}</div>
   </section>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
 import Logo from "~/components/Logo.vue";
-
+import { message } from "ant-design-vue";
+import { callLogin, callGetGameList } from "~/actions/api";
 export default {
   components: {
-    Logo
+    Logo,
+    [message.name]: message
   },
   layout: "front",
   data() {
@@ -38,10 +38,50 @@ export default {
       password: ""
     };
   },
+  computed: {
+    ...mapState("layoutStore", ["list"])
+  },
   methods: {
+    callLogin,
     ...mapActions({
-      login: "layoutStore/login"
-    })
+      onSubmit: "basicAction/onSubmit",
+      getList: "basicAction/getList"
+    }),
+    login(e) {
+      if (e) e.preventDefault();
+      this.onSubmit({
+        api: callLogin,
+        postData: {
+          account: this.account,
+          password: this.password,
+          site_id: 1,
+          ip_data: {
+            as: "AS3462 Chunghwa Telecom Co., Ltd.",
+            city: "台北市",
+            country: "台湾",
+            countryCode: "TW",
+            isp: "HINET",
+            lat: 25.0478,
+            lon: 121.5318,
+            org: "Chunghwa Telecom Co. Ltd.",
+            query: "60.251.26.1",
+            region: "TPE",
+            regionName: "台北市",
+            status: "success",
+            timezone: "Asia/Taipei",
+            zip: ""
+          },
+          system: "win/chrome",
+          host: "localhost:3006",
+          device: 1
+        }
+      })
+        .then(res => res && message.success(res.text))
+        .catch(errRes => errRes && message.error(errRes.text));
+    },
+    getGameList(e) {
+      this.getList({ api: callGetGameList });
+    }
   }
 };
 </script>

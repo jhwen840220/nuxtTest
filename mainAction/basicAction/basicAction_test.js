@@ -10,10 +10,10 @@ export default class extendAction {
         this.getters = { ...defaultGetters };
         this.actions = {
             ...defaultActions,
-            [`${this.storeName}_updateData`]({ commit }, status) {
-                console.log(status)
+
+            [`${this.storeName}_updateData`]({ commit, state }, status) {
                 commit(`${ctx.storeName}_update_data_mutation`, status);
-            }
+            },
         };
         this.mutations = {
             ...defaultMutations,

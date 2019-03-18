@@ -16,7 +16,8 @@ export default class basicDetailAction {
         this.actions = {
             ...defaultActions,
             [`${this.storeName}_updateData`]({ commit }, status) {
-                console.log(status)
+
+                console.log('update_data', status)
                 commit(`${ctx.storeName}_update_data_mutation`, status);
             }
         };

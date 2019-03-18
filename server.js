@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const app = require('express')()
 const axios = require('axios')
+const config = require('./nuxt.config.js')
 
 // Body parser，用来封装 req.body
 app.use(bodyParser.json())
@@ -28,7 +29,7 @@ app.post('/api/:params', function (req, res) {
     if (!!req.headers.authorization) {
         headers['Authorization'] = req.headers.authorization
     }
-    const serverPath = 'http://10.1.1.27:880/';
+    const serverPath = 'http://10.1.1.27:881/';
     const option = {
         method: 'POST',
         url: serverPath + url,
@@ -58,7 +59,8 @@ app.post('/api/logout', function (req, res) {
 
 // 我们用这些选项初始化 Nuxt.js：
 const isProd = process.env.NODE_ENV === 'production'
-const nuxt = new Nuxt({ dev: !isProd })
+config.dev = !isProd
+const nuxt = new Nuxt(config)
 // 生产模式不需要 build
 if (!isProd) {
     const builder = new Builder(nuxt)
