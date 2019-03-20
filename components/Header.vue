@@ -40,7 +40,9 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
-import { Drawer, Icon } from "ant-design-vue";
+import Drawer from "ant-design-vue/lib/drawer";
+import Icon from "ant-design-vue/lib/icon";
+// import { Drawer, Icon } from "ant-design-vue";
 export default {
   components: {
     [Drawer.name]: Drawer,
