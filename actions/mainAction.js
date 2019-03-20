@@ -5,10 +5,14 @@
 import axios from 'axios';
 const CancelToken = axios.CancelToken;
 
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 let cancel;             /** 用於abort request */
 let debug = false;       /** 用於debug */
 
-
+export var token = "";
 //setting default axios post、get
 export function post(url, data, req = false, abort = false) {
     if (cancel) {
@@ -39,13 +43,13 @@ export function post(url, data, req = false, abort = false) {
             const hasToken = !!response.headers.authorization;
             if (hasToken && process.browser) {
                 // console.log('have token')
-                // console.log(response.headers.authorization)
-                // window.cacheStore.loginStore.refreshToken(response.headers.authorization)
+                token = response.headers.authorization;
+                localStorage.setItem('token', token)
+                axios.defaults.headers.common['Authorization'] = token;          
             }
             if (!!req && response && debug) {
                 // console.log(`------------------res:${url}------------------`)
                 // console.log(response)
-
             }
             return response.data
 

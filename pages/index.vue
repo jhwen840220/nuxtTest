@@ -45,7 +45,8 @@ export default {
     callLogin,
     ...mapActions({
       onSubmit: "basicAction/onSubmit",
-      getList: "basicAction/getList"
+      getList: "basicAction/getList",
+      refreshToken: "refreshToken"
     }),
     login(e) {
       if (e) e.preventDefault();
@@ -76,11 +77,15 @@ export default {
           device: 1
         }
       })
-        .then(res => res && message.success(res.text))
+        .then(res => {
+          res && message.success(res.text);
+          this.refreshToken();
+          this.$router.push({ path: "/product" });
+        })
         .catch(errRes => errRes && message.error(errRes.text));
     },
     getGameList(e) {
-      this.getList({ api: callGetGameList });
+      this.getList({ storeName: "layoutStore", api: callGetGameList });
     }
   }
 };

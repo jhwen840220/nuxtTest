@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="menu_burger" @click="update_data( !collapse_flag );">
+    <div class="menu_burger" @click="updateData({collapse_flag: !collapse_flag })">
       <i :class="['i1',collapse_flag && 'closed']"/>
       <i :class="['i2',collapse_flag && 'closed']"/>
       <i :class="['i3',collapse_flag && 'closed']"/>
@@ -11,14 +11,14 @@
         placement="right"
         :zIndex="1025"
         :closable="false"
-        @close="update_data(false)"
+        @close="updateData({collapse_flag:false})"
         :visible="collapse_flag"
         wrapClassName="drawer-menu"
       >
-        <div @click="update_data(false)">
+        <div @click="updateData({collapse_flag:false})">
           <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
         </div>
-        <div @click="update_data( false)">
+        <div @click="updateData({collapse_flag:false})">
           <nuxt-link class="nav-link" to="/product">Product</nuxt-link>
         </div>
       </a-drawer>
@@ -40,7 +40,6 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
-import Vue from "vue";
 import { Drawer, Icon } from "ant-design-vue";
 export default {
   components: {
@@ -52,17 +51,19 @@ export default {
   },
   computed: {
     ...mapState("layoutStore", ["collapse_flag", "click_count"]),
-    ...mapGetters({ click_count_desc: "layoutStore/click_count_desc" })
+    ...mapGetters({
+      click_count_desc: "layoutStore/click_count_desc"
+    })
   },
   methods: {
     ...mapActions({
-      // update_data: "layoutStore/layoutStore_updateData"
+      update_data: "basicAction/update_data"
     }),
-    update_data(status) {
-      this.$store.commit("layoutStore/collapse_flag", status);
-    },
     increase() {
       this.$store.commit("layoutStore/increase_count");
+    },
+    updateData(data) {
+      this.update_data({ storeName: "layoutStore", data: data });
     }
   }
 };

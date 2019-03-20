@@ -45,30 +45,19 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
-
+  plugins: ['@/plugins/register-store', '@/plugins/route-beforeEach'],
+  
   /*
   ** Nuxt.js modules
   */
   modules: [
     'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/axios'
   ],
   // bootstrapVue: {
   //   bootstrapCSS: false, // or `css`
   //   bootstrapVueCSS: false // or `bvCSS`
   // },
-
-  proxy: {
-    '/api': {
-      target: 'http://10.1.1.27:881',
-      pathRewrite: {
-        '^/api': '/'
-      }
-    }
-  },
   /*
   ** Build configuration
   */

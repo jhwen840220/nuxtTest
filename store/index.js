@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
-
+import { token } from '@/actions/mainAction'
 export const state = () => ({
-    testStatus: "test123"
+    testStatus: "test123",
+    token: ""
 })
 
 export const getters = {
@@ -16,14 +17,17 @@ export const actions = {
     },
     getStatus({ commit }, status) {
         commit('setStatus', status);
+    },
+    refreshToken({ commit }) {
+        commit('update_data', { storeName: 'layoutStore', data: { token: token } });
     }
 }
 export const mutations = {
     setStatus(state, status) {
         state.testStatus = status;
     },
-    update_list(state, { storeName, list }) {
-        state[storeName].list = list
+    update_data(state, { storeName, data }) {
+        Object.keys(data).forEach(item => { state[storeName][item] = data[item]; })
     },
 }
 

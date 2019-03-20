@@ -7,6 +7,7 @@ import { callLogin } from '~/actions/api'
 export const state = () => ({
     collapse_flag: false,
     click_count: 0,
+    token: '',
     list: []
 })
 
@@ -19,9 +20,6 @@ export const actions = {
 
 }
 export const mutations = {
-    collapse_flag(state, status) {
-        state.collapse_flag = status;
-    },
     increase_count(state) {
         state.click_count = state.click_count + 1;
     }

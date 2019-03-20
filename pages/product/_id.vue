@@ -37,7 +37,7 @@ export default {
     return /^\d+$/.test(params.id);
   },
   fetch({ store, params }) {
-    const result = "報名結果是 123456";
+    const result = "報名結果是 12345556";
     store.dispatch("getStatus", result);
   },
 
