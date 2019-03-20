@@ -66,8 +66,24 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    // babel:{
+    //   presets: [
+    //     "es2015",
+    //     "stage-1"
+    //   ],
+    //   plugins: [
+    //     [
+    //       "import",
+    //       {
+    //         "libraryName": "ant-design-vue",
+    //         "libraryDirectory": "es",
+    //         "style": "css"
+    //       }
+    //     ]
+    //   ]
+    // },
     extend(config, ctx) {
-
+   
     }
   }
 }
