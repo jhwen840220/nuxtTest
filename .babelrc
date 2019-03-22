@@ -1,14 +1,13 @@
 {
     "presets": [
-        "es2015",
-        "stage-1"
+        "@nuxt/babel-preset-app"
     ],
     "plugins": [
+        "@babel/plugin-transform-runtime",
         [
             "import",
             {
-                "libraryName": "ant-design-vue",
-                "style": "css"
+                "libraryName": "ant-design-vue"
             }
         ]
     ]
