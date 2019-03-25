@@ -4,7 +4,9 @@ Vue.use(Vuex)
 import { token } from '@/actions/mainAction'
 export const state = () => ({
     testStatus: "test123",
-    token: ""
+    token: "",
+    locales: ['zh_tw', 'en'],
+    locale: 'zh_tw'
 })
 
 export const getters = {
@@ -23,6 +25,11 @@ export const actions = {
     }
 }
 export const mutations = {
+    SET_LANG(state, locale) {
+        if (state.locales.indexOf(locale) !== -1) {
+          state.locale = locale
+        }
+    },
     setStatus(state, status) {
         state.testStatus = status;
     },

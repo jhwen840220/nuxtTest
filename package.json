@@ -5,10 +5,10 @@
   "author": "Ted",
   "private": true,
   "scripts": {
-    "dev": "node -r dotenv/config server.js --open",
+    "dev": "cross-env node -r dotenv/config server.js --open",
     "_dev": "set PORT=3006 && nuxt",
     "build": "nuxt build",
-    "start": "set PORT=3010 && set NODE_ENV=production && set MOCK_DATA=true && node server.js",
+    "start": "cross-env PORT=3010 NODE_ENV=production node server.js",
     "_start": "set PORT=3010 && nuxt start",
     "generate": "nuxt generate"
   },
@@ -31,6 +31,7 @@
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
     "susy": "2.2.12",
+    "vue-i18n": "^8.9.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {

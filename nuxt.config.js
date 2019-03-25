@@ -45,8 +45,11 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/register-store', '@/plugins/route-beforeEach'],
+  plugins: ['@/plugins/register-store', '@/plugins/route-beforeEach', '@/plugins/i18n'],
   
+  router: {
+    middleware: 'i18n'
+  },
   /*
   ** Nuxt.js modules
   */

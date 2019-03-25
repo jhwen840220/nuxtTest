@@ -18,10 +18,9 @@ export function post(url, data, req = false, abort = false) {
     if (cancel) {
         cancel();
     }
-
     let host = !!req ? req.headers.host : process.browser ? location.host : '';
     const isServer = !!req
-    const serverUrl = `http://${location.host}/api/`;
+    const serverUrl = `${location.protocol}//${location.host}/api/`;
     const dataUrl = serverUrl + url
     if (!!req && debug) {
         console.log(`---client fetch server ${dataUrl}---`);

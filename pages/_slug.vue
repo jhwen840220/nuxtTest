@@ -1,14 +1,4 @@
-<template>
-  <div>
-    <Logo/>
-    <nuxt-child/>
-  </div>
-</template>
-
 <script>
-import Logo from "~/components/Logo.vue";
-export default {
-  layout: "front",
-  components: { Logo }
-};
+import slug from "~/pages/_lang/_slug";
+export default slug;
 </script>

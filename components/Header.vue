@@ -33,6 +33,7 @@
       </ul>
       <div class="navbar_right">
         <a-icon type="plus" class="mr-2" style="font-size:23px" @click="increase"/>
+        <a-icon type="fire" class="mr-2" style="font-size:23px"/>
       </div>
     </nav>
   </div>
@@ -40,8 +41,6 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
-// import Drawer from "ant-design-vue/lib/drawer";
-// import Icon from "ant-design-vue/lib/icon";
 import { Drawer, Icon } from "ant-design-vue";
 export default {
   components: {

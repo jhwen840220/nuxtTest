@@ -1,6 +1,6 @@
 const testFunc = ({ params, store, redirect }) => {
     if (params.id < 100) {
-        return redirect('/product')
+        return redirect(`/${params.lang}/product`)
     }
 }
 
