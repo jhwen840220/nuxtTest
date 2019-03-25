@@ -6,7 +6,11 @@
       <i :class="['i3',collapse_flag && 'closed']"/>
     </div>
     <nav class="navbar sticky-top">
-      <nuxt-link class="navbar-brand" to="/" style="color:orange">Home({{click_count_desc}})</nuxt-link>
+      <nuxt-link
+        class="navbar-brand"
+        :to="`/${$route.params.lang}`"
+        style="color:orange"
+      >Home({{click_count_desc}})</nuxt-link>
       <a-drawer
         placement="right"
         :zIndex="1025"
@@ -16,10 +20,10 @@
         wrapClassName="drawer-menu"
       >
         <div @click="updateData({collapse_flag:false})">
-          <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
+          <nuxt-link class="nav-link" :to="`/${$route.params.lang}/login`">Login</nuxt-link>
         </div>
         <div @click="updateData({collapse_flag:false})">
-          <nuxt-link class="nav-link" to="/product">Product</nuxt-link>
+          <nuxt-link class="nav-link" :to="`/${$route.params.lang}/product`">Product</nuxt-link>
         </div>
       </a-drawer>
 
