@@ -8,7 +8,7 @@
     <nav class="navbar sticky-top">
       <nuxt-link
         class="navbar-brand"
-        :to="`/${$route.params.lang}`"
+        :to="`/${locale}`"
         style="color:orange"
       >Home({{click_count_desc}})</nuxt-link>
       <a-drawer
@@ -20,10 +20,10 @@
         wrapClassName="drawer-menu"
       >
         <div @click="updateData({collapse_flag:false})">
-          <nuxt-link class="nav-link" :to="`/${$route.params.lang}/login`">Login</nuxt-link>
+          <nuxt-link class="nav-link" :to="`/${locale}/login`">Login</nuxt-link>
         </div>
         <div @click="updateData({collapse_flag:false})">
-          <nuxt-link class="nav-link" :to="`/${$route.params.lang}/product`">Product</nuxt-link>
+          <nuxt-link class="nav-link" :to="`/${locale}/product`">Product</nuxt-link>
         </div>
       </a-drawer>
 
@@ -56,6 +56,7 @@ export default {
   },
   computed: {
     ...mapState("layoutStore", ["collapse_flag", "click_count"]),
+    ...mapState(["locale"]),
     ...mapGetters({
       click_count_desc: "layoutStore/click_count_desc"
     })
