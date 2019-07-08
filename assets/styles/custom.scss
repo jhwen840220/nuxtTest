@@ -64,9 +64,11 @@ body{
     }
 }
 .navbar{
-    background-color:$main-color;
+    height:120px;
+    background-color:$main-color; 
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     @media (max-width: 768px){
+        height:70px;
         padding-right:38px;
     }
     .navbar_toggle_btn {
@@ -88,6 +90,20 @@ body{
         display: flex;
         align-items:center;
     }
+    .navbar-brand{
+        padding-left:50px;
+        .logo{
+            width:100px;
+            background:url('~static/headerLogo.png') center no-repeat;
+            background-size: cover;
+            height:93px;
+            @media (max-width: 768px){
+                width:140px;
+                height:50px;
+                background:url('~static/mobileLogo.png') center no-repeat;
+            }
+        }
+    }
 }
 .footer{
     height:40px;
@@ -101,9 +117,12 @@ body{
     }
 }
 #page-wrapper{
-    height:calc(100vh - 96px);
+    height:calc(100vh - 160px);
     background-color: rgb(222, 238, 238);
     overflow: auto;
+    @media (max-width: 768px){
+        height:calc(100vh - 110px);
+    }
     .container {
         margin: 0 auto;
         min-height: 100%;

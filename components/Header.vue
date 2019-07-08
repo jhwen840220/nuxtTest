@@ -6,11 +6,9 @@
       <i :class="['i3',collapse_flag && 'closed']"/>
     </div>
     <nav class="navbar sticky-top">
-      <nuxt-link
-        class="navbar-brand"
-        :to="`/${locale}`"
-        style="color:orange"
-      >Home({{click_count_desc}})</nuxt-link>
+      <nuxt-link class="navbar-brand" :to="`/${locale}`">
+        <div class="logo"/>
+      </nuxt-link>
       <a-drawer
         placement="right"
         :zIndex="1025"
@@ -20,7 +18,7 @@
         wrapClassName="drawer-menu"
       >
         <div @click="updateData({collapse_flag:false})">
-          <nuxt-link class="nav-link" :to="`/${locale}/login`">Login</nuxt-link>
+          <nuxt-link class="nav-link" :to="`/${locale}/login`">{{$t('login')}}</nuxt-link>
         </div>
         <div @click="updateData({collapse_flag:false})">
           <nuxt-link class="nav-link" :to="`/${locale}/product`">Product</nuxt-link>
@@ -37,7 +35,7 @@
       </ul>
       <div class="navbar_right">
         <a-icon type="plus" class="mr-2" style="font-size:23px" @click="increase"/>
-        <a-icon type="fire" class="mr-2" style="font-size:23px"/>
+        <a-icon type="fire" class="mr-2" style="font-size:23px" @click="test"/>
       </div>
     </nav>
   </div>
@@ -70,6 +68,23 @@ export default {
     },
     updateData(data) {
       this.update_data({ storeName: "layoutStore", data: data });
+    },
+    test() {
+      const route = this.$route;
+      if (route.params.lang) {
+        const toReplace =
+          "^/" +
+          route.params.lang +
+          (route.fullPath.indexOf("/" + route.params.lang + "/") === 0
+            ? "/"
+            : "");
+        const re = new RegExp(toReplace);
+        this.$router.push(route.fullPath.replace(re, "/"));
+      } else {
+        const toReplace = "^/" + (route.fullPath.indexOf("/") === 0 ? "/" : "");
+        const re = new RegExp(toReplace);
+        this.$router.push("/en" + route.fullPath.replace(re, "/"));
+      }
     }
   }
 };

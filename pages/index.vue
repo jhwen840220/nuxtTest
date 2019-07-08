@@ -85,7 +85,7 @@ export default {
         .then(res => {
           res && message.success(res.text);
           this.refreshToken();
-          this.$router.push({ path: `${this.$route.path}/product` });
+          this.$router.push({ path: `/${this.$store.state.locale}/product` });
         })
         .catch(errRes => errRes && message.error(errRes.text));
     },
