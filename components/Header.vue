@@ -5,10 +5,19 @@
       <i :class="['i2',collapse_flag && 'closed']"/>
       <i :class="['i3',collapse_flag && 'closed']"/>
     </div>
-    <nav class="navbar sticky-top">
-      <nuxt-link class="navbar-brand" :to="`/${locale}`">
-        <!-- <div class="logo"/> -->
-      </nuxt-link>
+    <nav class="navbar">
+      <div class="navbar_left">   
+        <nuxt-link :to="`/${locale}`">
+          <div class="logo" ></div>
+        </nuxt-link>
+        <div class="navbar-search input-group">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+          </div>
+        </div>
+      </div>
+
       <a-drawer
         placement="right"
         :zIndex="1025"
@@ -25,14 +34,15 @@
         </div>
       </a-drawer>
 
-      <ul class="navbar_menu mr-auto mb-0">
+      <!-- <ul class="navbar_menu mr-auto mb-0">
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/login">Login</nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/product">Product</nuxt-link>
         </li>
-      </ul>
+      </ul> -->
+
       <div class="navbar_right">
         <a-icon type="plus" class="mr-2" style="font-size:23px" @click="increase"/>
         <a-icon type="fire" class="mr-2" style="font-size:23px" @click="test"/>

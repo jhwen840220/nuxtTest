@@ -1,15 +1,16 @@
 <template>
   <div class="w-100">
-    <section class="search-container row justify-content-between">
+    <section class="search-container">
+      <div class="row justify-content-between">
       <div class="blocks search-block col-12 col-md-6">
         <div class="search-frame">
           <h5>Lorem ipsum dolor sit amet consectetur.</h5>
           <div class="search-group">
-            <p class="search-title text-left">關鍵字</p>
+            <p class="search-title">關鍵字</p>
             <a-input size="large" placeholder="請輸入欲搜尋關鍵字"></a-input>
           </div>
           <div class="search-group">
-            <p class="search-title text-left">縣市/地區</p>
+            <p class="search-title">縣市/地區</p>
             <div style="display:flex">
             <a-select style="flex: 1" defaultValue="tainan">
               <!-- <a-select-option key="city" value="tainan">台南市</a-select-option> -->
@@ -20,7 +21,7 @@
             </div>
           </div>
           <div class="search-group">
-            <p class="search-title text-left">標籤</p>
+            <p class="search-title">標籤</p>
             <a-input placeholder="請輸入標籤"></a-input>
           </div>
           <div class="search-group text-right m-0">
@@ -30,63 +31,63 @@
       </div>
       <div class="blocks trend-block col-12 col-md-4">
         <div class="trend-frame up">
-          <h6 class="p-2 text-left">本周熱門 Hashtags</h6>
-          <div class="trend-group text-left">
-            <div class="tag-block">
+          <h6 class="p-2 m-0">本周熱門 Hashtags</h6>
+          <div class="trend-group">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainan
               </a>
               <span class="count-badge">5,456</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanfoodie
               </a>
               <span class="count-badge">2,456</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanspotfdfknnblnmklmsklmdftainanspotfdfknnblnmklmsklmdftainanspotfdfknnblnmklmsklmdftainanspotfdfknnblnmklmsklmdftainanspotfdfknnblnmklmsklmdftainanspotfdfknnblnmklmsklmdf
               </a>
               <span class="count-badge">1,456</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanbnb
               </a>
               <span class="count-badge">25.1K</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanlunch
               </a>
               <span class="count-badge">333</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanselfie
               </a>
               <span class="count-badge">789</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanselfie
               </a>
               <span class="count-badge">789</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanselfie
               </a>
               <span class="count-badge">789</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanselfie
               </a>
               <span class="count-badge">789</span>
             </div>
-            <div class="tag-block">
+            <div class="tag-frame">
               <a href="#" class="text-truncate">
               #tainanselfie
               </a>
@@ -95,8 +96,8 @@
           </div>
         </div>
         <div class="trend-frame down">
-          <h6 class="p-2 text-left">附近最新打卡地點</h6>
-          <div class="trend-group text-left">
+          <h6 class="p-2 m-0">附近最新打卡地點</h6>
+          <div class="trend-group">
             <a href="#" class="spot-block">📌 Tainan, Taiwan</a>
             <a href="#" class="spot-block">📌 Tainan, Taiwan</a>
             <a href="#" class="spot-block">📌 Tainan, Taiwan</a>
@@ -104,6 +105,7 @@
             <a href="#" class="spot-block">📌 Tainan, Taiwan</a>
           </div>
         </div>
+      </div>
       </div>
       <!-- <form role="form" @submit="login" method="post">
         <div class="col-md-12 input-group mb-3">
@@ -129,19 +131,21 @@
     <section class="latest-container my-3">
       <h4>地區精選</h4>
       <div class="row justify-content-around h-100">
-        <div class="col-md-4 bg-success p-3" v-for="item in arr6" :key="item" >
-          <div class="spot-img">
-            <img src="https://i.imgur.com/9OWk2dp.jpg"/>
-            <div class="heartCount">❤ 123,456</div>
-          </div>
-          <div class="spot-desc">
-            <h5 class="location text-left">📌homeeee</h5>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="username d-flex align-items-center">
-                <div class="userHead mr-2"></div>
-                <span>ted_pig</span>
+        <div class="col-md-4 p-3" v-for="item in arr6" :key="item" >
+          <div class="spot-frame">
+            <div class="spot-img">
+              <img src="https://i.imgur.com/9OWk2dp.jpg"/>
+              <div class="heartCount">❤ 123,456</div>
+            </div>
+            <div class="spot-desc">
+              <h5 class="location">📌homeeee</h5>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="username d-flex align-items-center">
+                  <div class="userHead mr-2"></div>
+                  <span>ted_pig</span>
+                </div>
+                <div class="timing">7 minutes ago</div>
               </div>
-              <div class="timing">7 minutes ago</div>
             </div>
           </div>
         </div>
@@ -149,9 +153,11 @@
     </section>
     <section class="quick-container mb-3">
       <h4>季節精選</h4>
-      <div class="row">
-        <div class="col-md-3 p-3 bg-warning" v-for="item in arr4" :key="item">
-          <div class="quick-block">
+      <div class="row quick-group">
+        <div class="arrow left"><a-icon type="left" style="font-size: 20px;" /></div>
+        <div class="arrow right"><a-icon type="right" style="font-size: 20px;" /></div>
+        <div class="col-md-3 p-3" v-for="item in arr4" :key="item">
+          <div class="quick-frame">
           我愛夏天
           </div>
         </div>

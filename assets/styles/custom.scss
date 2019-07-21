@@ -107,22 +107,34 @@ body {
     align-items: center;
   }
 
-  .navbar-brand {
-    padding-left: 50px;
+  .navbar_left {
+    display: flex;
+    width: 600px;
 
     .logo {
-      width: 100px;
-      background: url('~static/headerLogo.png') center no-repeat;
+      width: 200px;
       background-size: cover;
-      height: 93px;
+      height: 100%;
+      background: peachpuff;
+      margin-right: 20px;
+    }
 
-      @media (max-width: 768px) {
-        width: 140px;
-        height: 50px;
-        background: url('~static/mobileLogo.png') center no-repeat;
+    .navbar-search {
+      margin-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      width: auto;
+      height: 100%;
+
+      .logo {}
+
+      .navbar-search {
+        display: none;
       }
     }
   }
+
 }
 
 .footer {
@@ -139,9 +151,7 @@ body {
 }
 
 #page-wrapper {
-  height: 100vh;
-  background-color: rgb(222, 238, 238);
-  overflow: auto;
+  background-color: #f6f7f8;
 
   .container {
     margin: 0 auto;
@@ -150,7 +160,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    // text-align: center;
   }
 
   .title {
@@ -192,15 +202,19 @@ body {
   height: 100vh;
   width: 100%;
 
-  .blocks {
-    float: left;
-    height: 100%;
+  @media (max-width: 768px) {
+    height: auto;
 
+    .blocks.search-block {
+      padding-top: 50px;
+    }
+  }
+
+  .blocks {
     &.search-block {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: powderblue;
 
       .search-frame {
         padding: 20px;
@@ -226,14 +240,13 @@ body {
         display: flex;
         flex-direction: column;
         width: 100%;
+        background: palegreen;
 
         &.up {
-          background: pink;
           height: 60%;
         }
 
         &.down {
-          background: palegreen;
           height: 40%;
         }
 
@@ -243,7 +256,7 @@ body {
           background: antiquewhite;
 
           /* TAGS */
-          .tag-block {
+          .tag-frame {
             padding: 6px 8px;
             display: flex;
             align-items: center;
@@ -269,60 +282,85 @@ body {
   }
 }
 
+
+
 .latest-container {
   min-height: 400px;
 
-  .spot-img {
-    width: 100%;
-    padding-top: 100%;
-    background: white;
-    position: relative;
+  .spot-frame {
+    border: 1px solid #ddd;
 
-    img {
-      position: absolute;
-      object-fit: contain;
+    .spot-img {
       width: 100%;
-      height: 100%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      padding-top: 100%;
+      background: white;
+      position: relative;
+
+      img {
+        position: absolute;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .heartCount {
+        position: absolute;
+        padding: 3px 8px;
+        left: 10px;
+        bottom: 5px;
+        color: white;
+        border-radius: 16px;
+        text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.25);
+        background: rgba(0, 0, 0, 0.375);
+        font-weight: bold;
+      }
     }
 
-    .heartCount {
-      position: absolute;
-      padding: 3px 8px;
-      left: 10px;
-      bottom: 5px;
-      color: white;
-      border-radius: 16px;
-      text-shadow: 1px 1px 1.5px rgba(0, 0, 0, 0.25);
-      background: rgba(0, 0, 0, 0.375);
-      font-weight: bold;
-    }
-  }
+    .spot-desc {
+      width: 100%;
+      padding: 8px 16px;
+      // height: 100px;
+      background: palegoldenrod;
 
-  .spot-desc {
-    width: 100%;
-    padding: 8px 16px;
-    // height: 100px;
-    background: palegoldenrod;
-
-    .userHead {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: lightgray;
+      .userHead {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: lightgray;
+      }
     }
   }
 }
 
 .quick-container {
+  .quick-group {
+    position: relative;
 
-  .quick-block {
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
+    .arrow {
+      position: absolute;
+      top: 50%;
+
+      &.left {
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
+
+      &.right {
+        right: 0;
+        transform: translate(100%, -50%);
+      }
+    }
+
+    .quick-frame {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: antiquewhite;
+      font-size: 30px;
+    }
   }
 }
