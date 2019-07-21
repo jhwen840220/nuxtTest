@@ -134,7 +134,7 @@
         <div class="col-md-4 p-3" v-for="item in arr6" :key="item" >
           <div class="spot-frame">
             <div class="spot-img">
-              <img src="https://i.imgur.com/9OWk2dp.jpg"/>
+              <img :src="item%2 == 0 ? 'https://i.imgur.com/9OWk2dp.jpg' : 'https://i.imgur.com/pkHhSFt.jpg'"/>
               <div class="heartCount">❤ 123,456</div>
             </div>
             <div class="spot-desc">

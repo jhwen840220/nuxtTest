@@ -289,11 +289,12 @@ body {
 
   .spot-frame {
     border: 1px solid #ddd;
+    background: white;
 
     .spot-img {
       width: 100%;
+      margin: auto;
       padding-top: 100%;
-      background: white;
       position: relative;
 
       img {
