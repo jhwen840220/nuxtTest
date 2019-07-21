@@ -2,9 +2,11 @@
   <div class="page">
     <Header/>
     <div id="page-wrapper">
-      <nuxt/>
+      <div class="container">
+        <nuxt/>
+      </div>
     </div>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 

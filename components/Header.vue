@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main_header">
     <div class="menu_burger" @click="updateData({collapse_flag: !collapse_flag })">
       <i :class="['i1',collapse_flag && 'closed']"/>
       <i :class="['i2',collapse_flag && 'closed']"/>
@@ -7,7 +7,7 @@
     </div>
     <nav class="navbar sticky-top">
       <nuxt-link class="navbar-brand" :to="`/${locale}`">
-        <div class="logo"/>
+        <!-- <div class="logo"/> -->
       </nuxt-link>
       <a-drawer
         placement="right"
