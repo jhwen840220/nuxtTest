@@ -46,9 +46,10 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: ['@/plugins/register-store', '@/plugins/route-beforeEach', '@/plugins/i18n'],
-  
+
   router: {
-    middleware: 'i18n'
+    middleware: 'i18n',
+    base: 'nuxtTest'
   },
   /*
   ** Nuxt.js modules
@@ -69,8 +70,8 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    babel:{
-      babelrc:true,
+    babel: {
+      babelrc: true,
       // "plugins":[
       //   [
       //     "import",
@@ -79,8 +80,8 @@ module.exports = {
       //     },
       //   ]
       // ]
-    }, 
-    extend (config, ctx) {
+    },
+    extend(config, ctx) {
     }
   }
 }
