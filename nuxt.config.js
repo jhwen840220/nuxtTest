@@ -1,6 +1,13 @@
 const pkg = require('./package')
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/nuxtTest/'
+  }
+} : {}
+
 
 module.exports = {
+  ...routerBase,
   mode: 'universal',
 
   /*
@@ -48,8 +55,7 @@ module.exports = {
   plugins: ['@/plugins/register-store', '@/plugins/route-beforeEach', '@/plugins/i18n'],
 
   router: {
-    middleware: 'i18n',
-    base: 'nuxtTest'
+    middleware: 'i18n'
   },
   /*
   ** Nuxt.js modules

@@ -10,7 +10,9 @@
     "build": "nuxt build",
     "start": "cross-env PORT=3010 NODE_ENV=production node server.js",
     "_start": "set PORT=3010 && nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
